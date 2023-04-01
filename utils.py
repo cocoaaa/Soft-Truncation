@@ -1,3 +1,9 @@
+from PIL import Image
+from pathlib import Path
+from typing import Dict, Iterable, Optional, Union
+from datetime import datetime
+import matplotlib.pyplot as plt
+
 import torch
 import tensorflow as tf
 import os
@@ -10,7 +16,11 @@ from models.ema import ExponentialMovingAverage
 import losses
 import likelihood, sampling
 
-def restore_checkpoint(config, ckpt_dir, state, device):
+
+def restore_checkpoint(ckpt_dir: str, 
+                       state: Dict, 
+                       device:Union[str, torch.device]):
+  
   if not tf.io.gfile.exists(ckpt_dir):
     tf.io.gfile.makedirs(os.path.dirname(ckpt_dir))
     logging.warning(f"No checkpoint found at {ckpt_dir}. "
@@ -51,7 +61,9 @@ def load_model(config, workdir, print_=True, sde=None):
   score_model = mutils.create_model(config, sde)
   optimizer = losses.get_optimizer(config, score_model.parameters())
   ema = ExponentialMovingAverage(score_model.parameters(), decay=config.model.ema_rate)
-  state = dict(optimizer=optimizer, model=score_model, ema=ema, step=0)
+  state = dict(optimizer=optimizer, 
+               model=score_model,
+               ema=ema, step=0)
 
   if print_:
     # print(score_model)
@@ -62,15 +74,16 @@ def load_model(config, workdir, print_=True, sde=None):
     logging.info(f"total number of parameters: {total_num_params}")
 
   # Create checkpoints directory
-  checkpoint_dir = os.path.join(workdir, "checkpoints")
+  checkpoint_dir = config.model.ckpt_dir or os.path.join(workdir, "checkpoints")
   # Intermediate checkpoints to resume training after pre-emption in cloud environments
-  checkpoint_meta_dir = os.path.join(workdir, "checkpoints-meta", "checkpoint.pth")
+  checkpoint_fp = config.model.ckpt_fp or os.path.join(workdir, "checkpoints-meta", "checkpoint.pth")
   tf.io.gfile.makedirs(checkpoint_dir)
-  tf.io.gfile.makedirs(os.path.dirname(checkpoint_meta_dir))
+  tf.io.gfile.makedirs(os.path.dirname(checkpoint_fp))
+  
   # Resume training when intermediate checkpoints are detected
-  state = restore_checkpoint(config, checkpoint_meta_dir, state, config.device)
+  state = restore_checkpoint(checkpoint_fp, state, config.device)
 
-  return state, score_model, ema, checkpoint_dir, checkpoint_meta_dir
+  return state#, score_model, ema, checkpoint_dir, checkpoint_meta_fp
 
 def get_loss_fns(config, sde, inverse_scaler, train=True):
   optimize_fn = losses.optimization_manager(config)
@@ -80,3 +93,45 @@ def get_loss_fns(config, sde, inverse_scaler, train=True):
   sampling_shape = (config.sampling.batch_size, config.data.num_channels, config.data.image_size, config.data.image_size)
   sampling_fn = sampling.get_sampling_fn(config, sde, sampling_shape, inverse_scaler, config.sampling.truncation_time)
   return train_step_fn, nll_fn, nelbo_fn, sampling_fn
+
+
+def now2str(delimiter: Optional[str]='-'):
+    now = datetime.now()
+    now_str = now.strftime(f"%Y%m%d{delimiter}%H%M%S")
+    return now_str
+
+def save_each_npimg(npimgs: Iterable[Union[np.ndarray, Image.Image]],
+                   out_dir: Path,
+                    prefix: Union[str, int]='',
+                   suffix_start_idx: int=0,
+                   is_pilimg:bool=False,
+                   **plot_kwargs) -> None:
+    """Save each npimg in `npimgs` as png file using plt.imsave:
+    File naming convention: out_dir / {prefix}_{start_idx + i}.png for ith image 
+    in the given list.
+    Save npimg using `plt.imsave' if not is_pilimg, else the input is actually a pilimage,
+    and we save each pilimage using `PIL.Image.Image.save(fp)`.
+    
+    Note:
+    - When the input images are np.arrays: 
+        if vmin and vmax are not given, then the min/max of each nparr is mapped 
+        to the min/max of the colormap (default, unless given as kwarg). 
+        So, not specifying the vmin/vmax in kwargs has essentially the same effect
+        as normalizing each nparr to [0.0., 1.0] and then converting each float value 
+        to a colorvalue in the colormap by linear-map (0.0 -> colormap.min, 1.0 -> colormap.max)
+        
+    Resources: 
+    - [plt.image.save](https://tinyurl.com/2jqcemdo) 
+    - [matplotlib.cm](https://matplotlib.org/stable/api/cm_api.html)
+
+    """    
+    bs = len(npimgs)
+    for i in range(bs):
+        idx = suffix_start_idx + i
+        fp = out_dir / f'{prefix}_{idx:07d}.png'
+        
+        if not is_pilimg:
+            plt.imsave(fp, npimgs[i], **plot_kwargs)   
+        else: #npimgs are actually an array of pil_img's (rgb)
+            npimgs[i].save(fp, **plot_kwargs)
+#         print('saved: ', fp)

@@ -416,10 +416,15 @@ def get_pc_sampler(config, sde, shape, predictor, corrector, inverse_scaler, snr
       Samples, number of function evaluations.
     """
     with torch.no_grad():
+
       # Initial sample
       x = sde.prior_sampling(shape).to(device)
       timesteps = torch.linspace(sde.T, eps, sde.N, device=device)
-
+      
+      #debug
+      print("sde.N: ", sde.N)
+      print("len(timesteps): ", len(timesteps))
+      
       for i in tqdm(range(sde.N)):
         t = timesteps[i]
         vec_t = torch.ones(shape[0], device=t.device) * t
