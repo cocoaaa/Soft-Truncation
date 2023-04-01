@@ -1,0 +1,61 @@
+INFO - utils.py - 2023-03-16 14:10:14,237 - model parameters: 65574421
+INFO - utils.py - 2023-03-16 14:10:14,238 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-16 14:11:32,286 - model parameters: 65574421
+INFO - utils.py - 2023-03-16 14:11:32,287 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-16 14:11:32,287 - /data/hayley-old/Github/Scores/Soft-Truncation/ckpts/CelebAHQ256/uncsnpp_rve_st/checkpoint.pth loaded ...
+INFO - utils.py - 2023-03-16 14:13:14,017 - model parameters: 65574421
+INFO - utils.py - 2023-03-16 14:13:14,018 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-16 14:13:14,019 - /data/hayley-old/Github/Scores/Soft-Truncation/ckpts/CelebAHQ256/uncsnpp_rve_st/checkpoint.pth loaded ...
+INFO - run_lib.py - 2023-03-16 14:13:15,268 - score model step: 2650001
+INFO - utils.py - 2023-03-16 14:13:45,316 - model parameters: 65574421
+INFO - utils.py - 2023-03-16 14:13:45,316 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-16 14:13:45,317 - /data/hayley-old/Github/Scores/Soft-Truncation/ckpts/CelebAHQ256/uncsnpp_rve_st/checkpoint.pth loaded ...
+INFO - run_lib.py - 2023-03-16 14:13:46,573 - score model step: 2650001
+INFO - utils.py - 2023-03-16 16:43:02,302 - model parameters: 65574421
+INFO - utils.py - 2023-03-16 16:43:02,314 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-16 16:43:02,315 - /data/hayley-old/Github/Scores/Soft-Truncation/ckpts/CelebAHQ256/uncsnpp_rve_st/checkpoint.pth loaded ...
+INFO - run_lib.py - 2023-03-16 16:43:11,232 - score model step: 2650001
+INFO - utils.py - 2023-03-16 16:43:48,401 - model parameters: 65574421
+INFO - utils.py - 2023-03-16 16:43:48,401 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-16 16:43:48,401 - /data/hayley-old/Github/Scores/Soft-Truncation/ckpts/CelebAHQ256/uncsnpp_rve_st/checkpoint.pth loaded ...
+INFO - run_lib.py - 2023-03-16 16:43:49,653 - score model step: 2650001
+INFO - utils.py - 2023-03-17 16:52:05,212 - model parameters: 65574421
+INFO - utils.py - 2023-03-17 16:52:05,223 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-17 16:52:05,223 - /data/hayley-old/Github/Scores/Soft-Truncation/ckpts/CelebAHQ256/uncsnpp_rve_st/checkpoint.pth loaded ...
+INFO - run_lib.py - 2023-03-17 16:52:08,970 - score model step: 2650001
+INFO - utils.py - 2023-03-17 17:25:21,367 - model parameters: 65574421
+INFO - utils.py - 2023-03-17 17:25:21,368 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-17 17:25:21,368 - /data/hayley-old/Github/Scores/Soft-Truncation/ckpts/CelebAHQ256/uncsnpp_rve_st/checkpoint.pth loaded ...
+INFO - run_lib.py - 2023-03-17 17:25:22,854 - score model step: 2650001
+INFO - utils.py - 2023-03-17 17:32:04,451 - model parameters: 65574421
+INFO - utils.py - 2023-03-17 17:32:04,452 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-17 17:32:04,452 - /data/hayley-old/Github/Scores/Soft-Truncation/ckpts/CelebAHQ256/uncsnpp_rve_st/checkpoint.pth loaded ...
+INFO - run_lib.py - 2023-03-17 17:32:05,654 - score model step: 2650001
+INFO - utils.py - 2023-03-17 17:55:50,119 - model parameters: 65574421
+INFO - utils.py - 2023-03-17 17:55:50,120 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-17 17:55:50,120 - /data/hayley-old/Github/Scores/Soft-Truncation/ckpts/CelebAHQ256/uncsnpp_rve_st/checkpoint.pth loaded ...
+INFO - run_lib.py - 2023-03-17 17:55:53,486 - score model step: 2650001
+INFO - utils.py - 2023-03-17 17:59:08,648 - model parameters: 65574421
+INFO - utils.py - 2023-03-17 17:59:08,649 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-17 17:59:08,649 - /data/hayley-old/Github/Scores/Soft-Truncation/ckpts/CelebAHQ256/uncsnpp_rve_st/checkpoint.pth loaded ...
+INFO - run_lib.py - 2023-03-17 17:59:15,550 - score model step: 2650001
+INFO - utils.py - 2023-03-17 17:59:53,215 - model parameters: 65574421
+INFO - utils.py - 2023-03-17 17:59:53,216 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-17 17:59:53,216 - /data/hayley-old/Github/Scores/Soft-Truncation/ckpts/CelebAHQ256/uncsnpp_rve_st/checkpoint.pth loaded ...
+INFO - run_lib.py - 2023-03-17 17:59:59,503 - score model step: 2650001
+INFO - utils.py - 2023-03-17 18:33:19,105 - model parameters: 65574421
+INFO - utils.py - 2023-03-17 18:33:19,106 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-17 18:33:19,106 - /data/hayley-old/Github/Scores/Soft-Truncation/ckpts/CelebAHQ256/uncsnpp_rve_st/checkpoint.pth loaded ...
+INFO - run_lib.py - 2023-03-17 18:33:20,467 - score model step: 2650001
+INFO - utils.py - 2023-03-23 17:17:00,849 - model parameters: 65574421
+INFO - utils.py - 2023-03-23 17:17:00,849 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-23 17:17:00,850 - /data/hayley-old/Github/Scores/Soft-Truncation/ckpts/CelebAHQ256/uncsnpp_rve_st/checkpoint.pth loaded ...
+INFO - run_lib.py - 2023-03-23 17:17:04,838 - score model step: 2650001
+INFO - utils.py - 2023-03-23 17:17:50,714 - model parameters: 65574421
+INFO - utils.py - 2023-03-23 17:17:50,715 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-23 17:17:50,715 - /data/hayley-old/Github/Scores/Soft-Truncation/ckpts/CelebAHQ256/uncsnpp_rve_st/checkpoint.pth loaded ...
+INFO - run_lib.py - 2023-03-23 17:17:52,018 - score model step: 2650001
+INFO - utils.py - 2023-03-28 17:33:41,355 - model parameters: 65574421
+INFO - utils.py - 2023-03-28 17:33:41,367 - total number of parameters: 65574549
+INFO - utils.py - 2023-03-28 17:33:41,368 - /data/hayley-old/Github/Scores/Soft-Truncation/ckpts/CelebAHQ256/uncsnpp_rve_st/checkpoint.pth loaded ...
+INFO - run_lib.py - 2023-03-28 17:33:44,732 - score model step: 2650001
